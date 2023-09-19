@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Passage</title>
+</head>
+<body>
+    <h1>Passage</h1>
+    <p>{{ passage.text }}</p>
+    <form method="post" action="{% url 'capture_audio' %}">
+        {% csrf_token %}
+        <input type="submit" value="Start Recording">
+    </form>
+
+    <h2>Transcription:</h2>
+    <p>{{ text }}</p>
+</body>
+</html>

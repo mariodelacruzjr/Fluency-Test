@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Capture Audio</title>
+</head>
+<body>
+    <!-- Display transcription here -->
+    <h2>Transcription:</h2>
+    <p>{{ text }}</p>
+    <form method="post" action="{% url 'results' %}">
+        {% csrf_token %}
+        <input type="submit" value="See Results">
+    </form>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <style>
+        .correct-word {
+            color: green;
+        }
+        .incorrect-word {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Results</h1>
+    <p>{{ passage }}</p>
+    <p>Words Said Correctly: {{ words_said_correctly }}</p>
+    
+    <p>
+        {% for word, value in passage_words_and_values %}
+            {% if value == '0' %}
+                <span class="incorrect-word">{{ word }}</span>
+            {% else %}
+                <span class="correct-word">{{ word }}</span>
+            {% endif %}
+            {% if not forloop.last %} <!-- Add space between words -->
+                &nbsp;
+            {% endif %}
+        {% endfor %}
+    </p>
+</body>
+</html>
